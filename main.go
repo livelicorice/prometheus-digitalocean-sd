@@ -111,7 +111,7 @@ func toTargetList(nodes []godo.Droplet) ([]Target, error) {
 		if pvtIPAddr != "" {
 			labels[doLabelPrivateIP] = model.LabelValue(pvtIPAddr)
 		}
-		var addr = net.JoinHostPort(ipAddr, *servicePort)
+		var addr = net.JoinHostPort(pvtIPAddr, *servicePort)
 		labels[doLabelStatus] = model.LabelValue(node.Status)
 		labels[doLabelRegion] = model.LabelValue(node.Region.Slug)
 		labels[doLabelSize] = model.LabelValue(node.SizeSlug)
